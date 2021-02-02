@@ -67,6 +67,9 @@
                     }
                     if(jqXHR[fund].length !== 0) {
                         $('#' + fund ).show();
+                        $('.ark-tab-' +fund).removeClass('btn-dark');
+                        $('.ark-tab-' +fund).addClass('btn-danger');
+                        // $('.ark-tab-' + fund ).;
                         var dataTable = $('#' + fund).DataTable({
                             data: jqXHR[fund],
                             columns: [
@@ -82,10 +85,12 @@
                             scrollX: true,
                             scrollCollapse: true,
                             lengthChange: false,
-                            order: [[1, "asc"]]
+                            order: [[1, "desc"]]
                         })
                         dt[fund] = dataTable;
                     } else {
+                        $('.ark-tab-' +fund).removeClass('btn-danger');
+                        $('.ark-tab-' +fund).addClass('btn-dark');
                         $('#' + fund ).hide();
                     }
                 })
