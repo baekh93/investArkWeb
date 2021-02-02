@@ -20,7 +20,39 @@
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
+}
+
+.ark-search .page-item.active .page-link {
+    z-index: 1;
+    color: #fff;
+    background-color: #343a40;
+    border-color: #343a40;
+}
+.ark-search .page-link:hover {
+    z-index: 2;
+    color: #343a40;
+    text-decoration: none;
+    background-color: #e9ecef;
+    border-color: #dee2e6;
+}
+.ark-search a:hover {
+    color: #343a40;
+    text-decoration: underline;
+}
+.ark-search .page-link {
+    position: relative;
+    display: block;
+    padding: .5rem .75rem;
+    margin-left: -1px;
+    line-height: 1.25;
+    color: #343a40;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+}
+.ark-search table th,
+.ark-search table td {
+    font-size : 11px
 }
 body {
 

@@ -649,7 +649,7 @@ welcome
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover; 
-  height: 50vh;
+  height: 40vh;
 }
 
 .welcome-area .header-text {
@@ -717,10 +717,11 @@ welcome
 
 @media (max-width: 765px) {
   .welcome-area {
-    margin-bottom: 100px;
+    /*모바일 수정*/
+    /*margin-bottom: 100px;*/
   }
   .welcome-area .header-text {
-    top: 60% !important;
+    top: 40% !important;
     transform: perspective(1px) translateY(-50%) !important;
     text-align: center;
   }

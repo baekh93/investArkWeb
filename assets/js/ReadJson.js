@@ -1,137 +1,94 @@
-(function ($) {
 
+(function ($) {
+    var url = 'https://paladin.mobi';
+    var funds = ['ARKK', 'ARKW', 'ARKQ', 'ARKG', 'ARKF'];
+    var dt ={
+        'ARKK': undefined,
+        'ARKW': undefined,
+        'ARKQ': undefined,
+        'ARKG': undefined,
+        'ARKF': undefined
+    };
     $(".ark-search .ark-tab").on('click', function (e) {
         var name = this.innerText;
         $("#" + name + "_wrapper").show();
-        debugger
+
     })
 
     // ARKW_wrapper
     function tabShow() {
-        $('#ARKF').show();
-        $('#ARKG').show();
-        $('#ARKK').show();
-        $('#ARKW').show();
-        $('#ARKQ').show();
+        _.each(funds, function (fund) {
+            $('#' +fund).show();
+        })
     }
 
     function tabTableShow() {
-        $('#ARKF_wrapper').show();
-        $('#ARKG_wrapper').show();
-        $('#ARKK_wrapper').show();
-        $('#ARKW_wrapper').show();
-        $('#ARKQ_wrapper').show();
+        _.each(funds, function (fund) {
+            $('#' + fund +'_wrapper').show();
+        })
     }
 
     function tabHide() {
-        $('#ARKF_wrapper').hide();
-        $('#ARKG_wrapper').hide();
-        $('#ARKK_wrapper').hide();
-        $('#ARKW_wrapper').hide();
-        $('#ARKQ_wrapper').hide();
+        _.each(funds, function (fund) {
+            $('#' + fund + '_wrapper').hide();
+        })
     }
 
-    $('#readJson').on('click', function () {
+    function tableClear() {
+        _.each(funds, function (fund) {
+            // $('#' + fund).
+        })
+    }
+
+    //객체로 보낼 때
+    // data: JSON.stringify({
+    //     "ticker": inputdata.toUpperCase()
+    // }),// 전송할 데이터
+    function searchTicker() {
         var inputdata = $('.tickerText').val();
         tabShow()
         $.ajax({
-            url: "https://paladin.mobi/ticker", // 요청 할 주소
-            async: true,// false 일 경우 동기 요청으로 변경
+            url: url + "/ticker", // 요청 할 주소
+            async: true, // false 일 경우 동기 요청으로 변경
             type: 'GET', // GET, PUT
             contentType: 'application/json',
-            // data: JSON.stringify({
-            //     "ticker": inputdata.toUpperCase()
-            // }),// 전송할 데이터
             data : {
                 name : inputdata.toUpperCase()
             },
             dataType: 'json',// xml, json, script, html
             beforeSend: function (jqXHR) {
-                console.log("beforeSend");
+                // console.log("beforeSend");
             },// 서버 요청 전 호출 되는 함수 return false; 일 경우 요청 중단
             success: function (jqXHR) {
-                console.log("success");
-                $('#ARKG').DataTable({
-                    data: jqXHR.ARKG,
-                    columns: [
-                        {"data": "company"},
-                        {"data": "date"},
-                        {"data": "percent"},
-                        {"data": "shares"}
-                    ],
-                    select: false,
-                    info: false,
-                    searching: false,
-                    // scrollY: "300px",
-                    scrollX: true,
-                    scrollCollapse: true,
-                    lengthChange: false
-                });
-                $('#ARKK').DataTable({
-                    data: jqXHR.ARKK,
-                    columns: [
-                        {"data": "company"},
-                        {"data": "date"},
-                        {"data": "percent"},
-                        {"data": "shares"}
-                    ],
-                    select: false,
-                    info: false,
-                    searching: false,
-                    // scrollY: "300px",
-                    scrollX: true,
-                    scrollCollapse: true,
-                    lengthChange: false
-                });
-                $('#ARKQ').DataTable({
-                    data: jqXHR.ARKQ,
-                    columns: [
-                        {"data": "company"},
-                        {"data": "date"},
-                        {"data": "percent"},
-                        {"data": "shares"}
-                    ],
-                    select: false,
-                    info: false,
-                    searching: false,
-                    // scrollY: "300px",
-                    scrollX: true,
-                    scrollCollapse: true,
-                    lengthChange: false
-                });
-                $('#ARKF').DataTable({
-                    data: jqXHR.ARKF,
-                    columns: [
-                        {"data": "company"},
-                        {"data": "date"},
-                        {"data": "percent"},
-                        {"data": "shares"}
-                    ],
-                    select: false,
-                    info: false,
-                    searching: false,
-                    // scrollY: "300px",
-                    scrollX: true,
-                    scrollCollapse: true,
-                    lengthChange: false
-                });
-                $('#ARKW').DataTable({
-                    data: jqXHR.ARKW,
-                    columns: [
-                        {"data": "company"},
-                        {"data": "date"},
-                        {"data": "percent"},
-                        {"data": "shares"}
-                    ],
-                    select: false,
-                    info: false,
-                    searching: false,
-                    // scrollY: "300px",
-                    scrollX: true,
-                    scrollCollapse: true,
-                    lengthChange: false
-                });
 
+                _.each(funds, function (fund) {
+                    if(dt[fund]) {
+                        dt[fund].destroy();
+                    }
+                    if(jqXHR[fund].length !== 0) {
+                        $('#' + fund ).show();
+                        var dataTable = $('#' + fund).DataTable({
+                            data: jqXHR[fund],
+                            columns: [
+                                {"data": "company"},
+                                {"data": "date"},
+                                {"data": "percent"},
+                                {"data": "shares"}
+                            ],
+                            select: false,
+                            info: false,
+                            searching: false,
+                            // scrollY: "300px",
+                            scrollX: true,
+                            scrollCollapse: true,
+                            lengthChange: false,
+                            order: [[1, "asc"]]
+                        })
+                        dt[fund] = dataTable;
+                    } else {
+                        $('#' + fund ).hide();
+                    }
+                })
 
             },// 요청 완료 시
             error: function (jqXHR) {
@@ -144,7 +101,12 @@
             }// 요청의 실패, 성공과 상관 없이 완료 될 경우 호출
         });
 
+    }
+    $('#readJson').on('click', searchTicker);
+    $('#tickerText').keydown(function (key) {
+        // if (key.keyCode === 13) {
+        //     searchTicker();
+        // }
     })
-
 
 })(window.jQuery);
