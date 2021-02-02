@@ -35,13 +35,16 @@
         var inputdata = $('.tickerText').val();
         tabShow()
         $.ajax({
-            url: "http://3.36.84.64:5000/ticker", // 요청 할 주소
+            url: "https://paladin.mobi/ticker", // 요청 할 주소
             async: true,// false 일 경우 동기 요청으로 변경
-            type: 'POST', // GET, PUT
+            type: 'GET', // GET, PUT
             contentType: 'application/json',
-            data: JSON.stringify({
-                "ticker": inputdata.toUpperCase()
-            }),// 전송할 데이터
+            // data: JSON.stringify({
+            //     "ticker": inputdata.toUpperCase()
+            // }),// 전송할 데이터
+            data : {
+                name : inputdata.toUpperCase()
+            },
             dataType: 'json',// xml, json, script, html
             beforeSend: function (jqXHR) {
                 console.log("beforeSend");
