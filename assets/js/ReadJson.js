@@ -88,7 +88,7 @@
                                 {
                                     "render": function ( data, type, row ) {
                                         var sp = data.split("/");
-                                        return sp[2].substring(2,4) + "."+ sp[0] + "." +sp[1];
+                                        return sp[2]+ "-"+ sp[0] + "-" +sp[1];
                                     },
                                     "targets": 0
                                 },
