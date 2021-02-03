@@ -45,7 +45,7 @@
     // }),// 전송할 데이터
     function searchTicker() {
         var inputdata = $('.tickerText').val();
-        tabShow()
+        // tabShow();
         $.ajax({
             url: url + "/ticker", // 요청 할 주소
             async: true, // false 일 경우 동기 요청으로 변경
