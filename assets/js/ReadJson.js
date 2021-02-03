@@ -72,22 +72,38 @@
                         var dataTable = $('#' + fund).DataTable({
                             data: jqXHR[fund],
                             columns: [
-                                {"data": "company"},
+                                // {"data": "company"},
                                 {"data": "date"},
-                                {"data": "percent"},
-                                {"data": "shares"}
+                                {"data": "shares"},
+                                {"data": "value"},
+                                {"data": "percent"}
                             ],
                             columnDefs : [
                                 {
-                                    // The `data` parameter refers to the data for the cell (defined by the
-                                    // `data` option, which defaults to the column being worked with, in
-                                    // this case `data: 0`.
                                     "render": function ( data, type, row ) {
                                         var sp = data.split("/");
                                         return sp[2] + "-"+ sp[0] + "-" +sp[1];
                                     },
-                                    "targets": 1
+                                    "targets": 0
                                 },
+
+                                {
+                                    "render": function ( data, type, row ) {
+
+                                        if(row.change < 0.0) {
+
+                                            return '<a style="color: red">'+data+'</a>';
+                                        }else if(row.change > 0.0) {
+
+                                            return '<a style="color: green">'+data+'</a>';
+                                        }else {
+
+                                            return '<a style="color: black">'+data+'</a>';
+                                        }
+                                    },
+                                    "targets": 1
+                                }
+
                                 // { "visible": false,  "targets": [ 3 ] }
                             ],
 
@@ -100,7 +116,7 @@
                             scrollX: false,
                             scrollCollapse: true,
                             lengthChange: false,
-                            order: [[1, "desc"]]
+                            order: [[0, "desc"]]
                         })
                         dt[fund] = dataTable;
                         $($.fn.dataTable.tables(true)).DataTable()

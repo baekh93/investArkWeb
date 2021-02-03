@@ -53,7 +53,8 @@
 }
 .ark-search table th,
 .ark-search table td {
-    font-size : 11px
+    font-size : 11px;
+    font-family: sans-serif, "Raleway";
 }
 
 /* width */
