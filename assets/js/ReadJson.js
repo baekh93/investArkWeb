@@ -94,16 +94,19 @@
                             select: false,
                             info: false,
                             searching: false,
-                            // scrollY: "300px",
-                            scrollX: true,
+                            paging: false,
+                            // pageLength: 5,
+                            scrollY: "300px",
+                            scrollX: false,
                             scrollCollapse: true,
                             lengthChange: false,
                             order: [[1, "desc"]]
                         })
                         dt[fund] = dataTable;
-
                         $($.fn.dataTable.tables(true)).DataTable()
                             .columns.adjust();
+
+
                     } else {
                         $('.ark-tab-' + fund).removeClass('btn-danger');
                         $('.ark-tab-' + fund).addClass('btn-dark');
