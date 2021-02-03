@@ -1,8 +1,7 @@
-
 (function ($) {
     var url = 'https://paladin.mobi';
     var funds = ['ARKK', 'ARKW', 'ARKQ', 'ARKG', 'ARKF'];
-    var dt ={
+    var dt = {
         'ARKK': undefined,
         'ARKW': undefined,
         'ARKQ': undefined,
@@ -18,13 +17,13 @@
     // ARKW_wrapper
     function tabShow() {
         _.each(funds, function (fund) {
-            $('#' +fund).show();
+            $('#' + fund).show();
         })
     }
 
     function tabTableShow() {
         _.each(funds, function (fund) {
-            $('#' + fund +'_wrapper').show();
+            $('#' + fund + '_wrapper').show();
         })
     }
 
@@ -52,8 +51,8 @@
             async: true, // false 일 경우 동기 요청으로 변경
             type: 'GET', // GET, PUT
             contentType: 'application/json',
-            data : {
-                name : inputdata.toUpperCase()
+            data: {
+                name: inputdata.toUpperCase()
             },
             dataType: 'json',// xml, json, script, html
             beforeSend: function (jqXHR) {
@@ -62,13 +61,13 @@
             success: function (jqXHR) {
 
                 _.each(funds, function (fund) {
-                    if(dt[fund]) {
+                    if (dt[fund]) {
                         dt[fund].destroy();
                     }
-                    if(jqXHR[fund].length !== 0) {
-                        $('#' + fund ).show();
-                        $('.ark-tab-' +fund).removeClass('btn-dark');
-                        $('.ark-tab-' +fund).addClass('btn-danger');
+                    if (jqXHR[fund].length !== 0) {
+                        $('#' + fund).show();
+                        $('.ark-tab-' + fund).removeClass('btn-dark');
+                        $('.ark-tab-' + fund).addClass('btn-danger');
                         // $('.ark-tab-' + fund ).;
                         var dataTable = $('#' + fund).DataTable({
                             data: jqXHR[fund],
@@ -78,6 +77,20 @@
                                 {"data": "percent"},
                                 {"data": "shares"}
                             ],
+                            columnDefs : [
+                                {
+                                    // The `data` parameter refers to the data for the cell (defined by the
+                                    // `data` option, which defaults to the column being worked with, in
+                                    // this case `data: 0`.
+                                    "render": function ( data, type, row ) {
+                                        var sp = data.split("/");
+                                        return sp[2] + "-"+ sp[0] + "-" +sp[1];
+                                    },
+                                    "targets": 1
+                                },
+                                // { "visible": false,  "targets": [ 3 ] }
+                            ],
+
                             select: false,
                             info: false,
                             searching: false,
@@ -88,10 +101,13 @@
                             order: [[1, "desc"]]
                         })
                         dt[fund] = dataTable;
+
+                        $($.fn.dataTable.tables(true)).DataTable()
+                            .columns.adjust();
                     } else {
-                        $('.ark-tab-' +fund).removeClass('btn-danger');
-                        $('.ark-tab-' +fund).addClass('btn-dark');
-                        $('#' + fund ).hide();
+                        $('.ark-tab-' + fund).removeClass('btn-danger');
+                        $('.ark-tab-' + fund).addClass('btn-dark');
+                        $('#' + fund).hide();
                     }
                 })
 
@@ -107,6 +123,7 @@
         });
 
     }
+
     $('#readJson').on('click', searchTicker);
     $('#tickerText').keydown(function (key) {
         // if (key.keyCode === 13) {
