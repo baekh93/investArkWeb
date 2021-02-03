@@ -1,5 +1,5 @@
 (function ($) {
-    var url = 'https://paladin.mobi';
+    var url = 'https://paladin.mobi:5000';
     var funds = ['ARKK', 'ARKW', 'ARKQ', 'ARKG', 'ARKF'];
     var dt = {
         'ARKK': undefined,
@@ -39,6 +39,11 @@
         })
     }
 
+    function addComma(value){
+        value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        return value;
+    }
+
     //객체로 보낼 때
     // data: JSON.stringify({
     //     "ticker": inputdata.toUpperCase()
@@ -65,6 +70,7 @@
                         dt[fund].destroy();
                     }
                     if (jqXHR[fund].length !== 0) {
+                        $(".ticker-company")[0].innerText = jqXHR[fund][0].company;
                         $('#' + fund).show();
                         $('.ark-tab-' + fund).removeClass('btn-dark');
                         $('.ark-tab-' + fund).addClass('btn-danger');
@@ -82,26 +88,31 @@
                                 {
                                     "render": function ( data, type, row ) {
                                         var sp = data.split("/");
-                                        return sp[2] + "-"+ sp[0] + "-" +sp[1];
+                                        return sp[2].substring(2,4) + "."+ sp[0] + "." +sp[1];
                                     },
                                     "targets": 0
                                 },
 
                                 {
                                     "render": function ( data, type, row ) {
-
                                         if(row.change < 0.0) {
-
-                                            return '<a style="color: red">'+data+'</a>';
+                                            return '<a style="color: red">'+addComma(data.toString())+'</a>';
                                         }else if(row.change > 0.0) {
-
-                                            return '<a style="color: green">'+data+'</a>';
+                                            return '<a style="color: green">'+addComma(data.toString())+'</a>';
                                         }else {
 
-                                            return '<a style="color: black">'+data+'</a>';
+                                            return '<a style="color: black">'+addComma(data.toString())+'</a>';
                                         }
                                     },
                                     "targets": 1
+                                },
+
+                                {
+                                    "render": function ( data, type, row ) {
+
+                                      return addComma(data.toString());
+                                    },
+                                    "targets": 2
                                 }
 
                                 // { "visible": false,  "targets": [ 3 ] }
@@ -132,11 +143,11 @@
 
             },// 요청 완료 시
             error: function (jqXHR) {
-                console.log("error");
+                // console.log("error");
                 alert('error');
             },// 요청 실패.
             complete: function (jqXHR) {
-                console.log("complete");
+                // console.log("complete");
                 tabHide();
             }// 요청의 실패, 성공과 상관 없이 완료 될 경우 호출
         });
