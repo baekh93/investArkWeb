@@ -66,10 +66,11 @@
             success: function (jqXHR) {
 
                 _.each(funds, function (fund) {
-                    if (dt[fund]) {
-                        dt[fund].destroy();
-                    }
+
                     if (jqXHR[fund].length !== 0) {
+                        if (dt[fund]) {
+                            dt[fund].destroy();
+                        }
                         $(".ticker-company")[0].innerText = jqXHR[fund][0].company;
                         $('#' + fund).show();
                         $('.ark-tab-' + fund).removeClass('btn-dark');
