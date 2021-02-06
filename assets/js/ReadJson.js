@@ -74,7 +74,7 @@
                         $(".ticker-company")[0].innerText = jqXHR[fund][0].company;
                         $('#' + fund).show();
                         $('.ark-tab-' + fund).removeClass('btn-dark');
-                        $('.ark-tab-' + fund).addClass('btn-danger');
+                        $('.ark-tab-' + fund).addClass('btn-success font-weigt-bold');
                         // $('.ark-tab-' + fund ).;
                         var dataTable = $('#' + fund).DataTable({
                             data: jqXHR[fund],
@@ -99,10 +99,10 @@
                                         if(row.change < 0.0) {
                                             return '<a style="color: red">'+addComma(data.toString())+'</a>';
                                         }else if(row.change > 0.0) {
-                                            return '<a style="color: green">'+addComma(data.toString())+'</a>';
+                                            return '<a style="color: #28a745">'+addComma(data.toString())+'</a>';
                                         }else {
 
-                                            return '<a style="color: black">'+addComma(data.toString())+'</a>';
+                                            return '<a style="color: white">'+addComma(data.toString())+'</a>';
                                         }
                                     },
                                     "targets": 1
@@ -136,7 +136,7 @@
 
 
                     } else {
-                        $('.ark-tab-' + fund).removeClass('btn-danger');
+                        $('.ark-tab-' + fund).removeClass('btn-success font-weigt-bold');
                         $('.ark-tab-' + fund).addClass('btn-dark');
                         $('#' + fund).hide();
                     }

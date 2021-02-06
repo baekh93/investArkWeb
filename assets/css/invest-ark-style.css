@@ -7,7 +7,6 @@
 .search-result-div {
     display: grid;
 }
-
 .tickerText {
     color: #777;
     font-size: 14px;
@@ -53,8 +52,18 @@
 }
 .ark-search table th,
 .ark-search table td {
+    color: white;
     font-size : 11px;
     font-family: sans-serif, "Raleway";
+}
+
+.ticker-company {
+    color: gray;
+    font-weight: bold;
+}
+
+.font-weigt-bold {
+    font-weight: bold;
 }
 
 /* width */
@@ -78,6 +87,6 @@
 }
 
 body {
-
+background: black;
 
 }
