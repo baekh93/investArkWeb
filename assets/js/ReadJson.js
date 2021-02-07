@@ -10,7 +10,14 @@
     };
     $(".ark-search .ark-tab").on('click', function (e) {
         var name = this.innerText;
-        $("#" + name + "_wrapper").show();
+        // $("#" + name + "_wrapper").show();
+        var $table = $("#" + name + "_wrapper");
+        debugger
+        if($table.hasClass('off')) {
+            $table.removeClass('off');
+        }else {
+            $table.addClass('off');
+        }
 
     })
 
@@ -29,7 +36,8 @@
 
     function tabHide() {
         _.each(funds, function (fund) {
-            $('#' + fund + '_wrapper').hide();
+            // $('#' + fund + '_wrapper').hide();
+            $('#' + fund + '_wrapper').addClass('off');
         })
     }
 
@@ -64,7 +72,6 @@
                 // console.log("beforeSend");
             },// 서버 요청 전 호출 되는 함수 return false; 일 경우 요청 중단
             success: function (jqXHR) {
-
                 _.each(funds, function (fund) {
 
                     if (jqXHR[fund].length !== 0) {
@@ -134,13 +141,15 @@
                         $($.fn.dataTable.tables(true)).DataTable()
                             .columns.adjust();
 
-
                     } else {
                         $('.ark-tab-' + fund).removeClass('btn-success font-weigt-bold');
                         $('.ark-tab-' + fund).addClass('btn-dark');
                         $('#' + fund).hide();
                     }
                 })
+                if(jqXHR.ARKF.length+jqXHR.ARKG.length+jqXHR.ARKK.length+jqXHR.ARKQ.length+jqXHR.ARKW.length === 0) {
+                    $(".ticker-company")[0].innerText = "No result.."
+                }
 
             },// 요청 완료 시
             error: function (jqXHR) {

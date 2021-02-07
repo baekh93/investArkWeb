@@ -8,10 +8,12 @@
     display: grid;
 }
 .tickerText {
+
+    margin-left: auto;
     color: #777;
     font-size: 14px;
     border: 1px solid #eee;
-    width: 100%;
+    width: 55%;
     height: 50px;
     outline: none;
     padding-left: 20px;
@@ -23,6 +25,12 @@
     margin-bottom: 25px;
 }
 
+.on {
+    display: block;
+}
+.off {
+    display: none;
+}
 .ark-search .page-item.active .page-link {
     z-index: 1;
     color: #fff;
@@ -86,6 +94,15 @@
     background: #555;
 }
 
+#readJson {
+    margin-right: auto;
+    width: 105px;
+    height: 50px;
+    margin-left: 18px;
+    border-radius: 25px;
+    font-size: 14px;
+    line-height: 2.5;
+}
 body {
 background: black;
 
