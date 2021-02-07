@@ -12,7 +12,6 @@
         var name = this.innerText;
         // $("#" + name + "_wrapper").show();
         var $table = $("#" + name + "_wrapper");
-        debugger
         if($table.hasClass('off')) {
             $table.removeClass('off');
         }else {
