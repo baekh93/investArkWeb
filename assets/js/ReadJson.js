@@ -12,9 +12,9 @@
         var name = this.innerText;
         // $("#" + name + "_wrapper").show();
         var $table = $("#" + name + "_wrapper");
-        if($table.hasClass('off')) {
+        if ($table.hasClass('off')) {
             $table.removeClass('off');
-        }else {
+        } else {
             $table.addClass('off');
         }
 
@@ -46,7 +46,7 @@
         })
     }
 
-    function addComma(value){
+    function addComma(value) {
         value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         return value;
     }
@@ -55,6 +55,8 @@
     // data: JSON.stringify({
     //     "ticker": inputdata.toUpperCase()
     // }),// 전송할 데이터
+
+
     function searchTicker() {
         var inputdata = $('.tickerText').val();
         // tabShow();
@@ -82,42 +84,47 @@
                         $('.ark-tab-' + fund).removeClass('btn-dark');
                         $('.ark-tab-' + fund).addClass('btn-success font-weigt-bold');
                         // $('.ark-tab-' + fund ).;
+                        // $.fn.dataTable.moment( 'DD/MM/YYYY HH:mm:ss' );    //Formatação com Hora
+                        // $.fn.dataTable.moment('DD/MM/YYYY');
                         var dataTable = $('#' + fund).DataTable({
                             data: jqXHR[fund],
                             columns: [
-                                // {"data": "company"},
-                                {"data": "date"},
+                                {
+                                    "type": "date-eu",
+                                    "data": "date"
+
+                                },
                                 {"data": "shares"},
                                 {"data": "value"},
                                 {"data": "percent"}
                             ],
-                            columnDefs : [
+                            columnDefs: [
                                 {
                                     "render": function ( data, type, row ) {
                                         var sp = data.split("/");
-                                        return sp[2]+ "-"+ sp[0] + "-" +sp[1];
+                                        return sp[1]+ "/"+ sp[0] + "/" +sp[2];
                                     },
                                     "targets": 0
                                 },
 
                                 {
-                                    "render": function ( data, type, row ) {
-                                        if(row.change < 0.0) {
-                                            return '<a style="color: red">'+addComma(data.toString())+'</a>';
-                                        }else if(row.change > 0.0) {
-                                            return '<a style="color: #28a745">'+addComma(data.toString())+'</a>';
-                                        }else {
+                                    "render": function (data, type, row) {
+                                        if (row.change < 0.0) {
+                                            return '<a style="color: red">' + addComma(data.toString()) + '</a>';
+                                        } else if (row.change > 0.0) {
+                                            return '<a style="color: #28a745">' + addComma(data.toString()) + '</a>';
+                                        } else {
 
-                                            return '<a style="color: white">'+addComma(data.toString())+'</a>';
+                                            return '<a style="color: white">' + addComma(data.toString()) + '</a>';
                                         }
                                     },
                                     "targets": 1
                                 },
 
                                 {
-                                    "render": function ( data, type, row ) {
+                                    "render": function (data, type, row) {
 
-                                      return addComma(data.toString());
+                                        return addComma(data.toString());
                                     },
                                     "targets": 2
                                 }
@@ -137,8 +144,8 @@
                             order: [[0, "desc"]]
                         })
                         dt[fund] = dataTable;
-                        $($.fn.dataTable.tables(true)).DataTable()
-                            .columns.adjust();
+                        // $($.fn.dataTable.tables(true)).DataTable()
+                        //     .columns.adjust();
 
                     } else {
                         $('.ark-tab-' + fund).removeClass('btn-success font-weigt-bold');
@@ -146,7 +153,7 @@
                         $('#' + fund).hide();
                     }
                 })
-                if(jqXHR.ARKF.length+jqXHR.ARKG.length+jqXHR.ARKK.length+jqXHR.ARKQ.length+jqXHR.ARKW.length === 0) {
+                if (jqXHR.ARKF.length + jqXHR.ARKG.length + jqXHR.ARKK.length + jqXHR.ARKQ.length + jqXHR.ARKW.length === 0) {
                     $(".ticker-company")[0].innerText = "No result.."
                 }
 
