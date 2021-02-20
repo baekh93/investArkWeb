@@ -180,14 +180,16 @@
         if(this.checked) {//화이트
             $(".welcome-area")[0].style.background = "white"
             $(document.body)[0].style.background="white"
-            $("#BWspan")[0].style.background ="white";
+            $("#BWspan")[0].style.background ="black";
+            $("#ck-label")[0].style.background="white"
             $("#logo-black").hide();
             $("#logo-White").show();
             $(".ark-search").addClass("black-font");
         }else {//블랙
             $(".welcome-area")[0].style.background = "black"
             $(document.body)[0].style.background="black"
-            $("#BWspan")[0].style.background ="black";
+            $("#BWspan")[0].style.background ="white";
+            $("#ck-label")[0].style.background="black"
             $("#logo-black").show();
             $("#logo-White").hide();
             $(".ark-search").removeClass("black-font");

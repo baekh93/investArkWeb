@@ -113,6 +113,7 @@ background: black;
 
 }
 
+/*on&off*/
  input[type="checkbox"] {
      position: absolute;
      visibility: hidden;
@@ -125,7 +126,7 @@ label {
     width: 60px;
     height: 34px;
     border-radius: 17px;
-    background-color: #fff;
+    background-color: black;
     transition-duration: 0.2s;
 }
 
