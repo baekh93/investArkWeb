@@ -139,7 +139,7 @@
                                 searching: false,
                                 paging: false,
                                 // pageLength: 5,
-                                scrollY: "300px",
+                                scrollY: "500px",
                                 scrollX: false,
                                 scrollCollapse: true,
                                 lengthChange: false,
