@@ -133,7 +133,7 @@ label {
 label span{
     position: absolute;
     left: 3px;
-    top: 3px;
+    top: 2px;
     z-index: 1;
     width: 28px;
     height: 28px;
@@ -176,9 +176,11 @@ label:after {
 
 input:checked + label {
     background-color: black;
+    transform: translate(1px, -1px);
 }
 
 input:checked + label span {
+    background-color: white;
     transform: translate(25px, -1px);
 }
 
