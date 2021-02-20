@@ -9,12 +9,11 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,300,400,500,700,900" rel="stylesheet">
 
-    <title>Gazua</title>
+    <title>ARKer</title>
     <!--
     SOFTY PINKO
     https://templatemo.com/tm-535-softy-pinko
     -->
-
     <!-- Additional CSS Files -->
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
 
@@ -48,9 +47,13 @@
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
                     <a href="#" class="logo">
-                        <img src="assets/images/ark_balck-removebg-preview.png" style="width: 110px;position: absolute;top: -14px; left: 10px;" alt="Gazua"/>
+                        <img id="logo-black" class="arker-logo" src="assets/images/ark_balck-removebg-preview.png" style="width: 110px;position: absolute;top: -14px; left: 10px; display: block" alt="ARKer"/>
+                        <img id="logo-White" class="arker-logo" src="assets/images/ark_white-removebg-preview.png" style="width: 110px;position: absolute;top: -14px; left: 10px; display: none" alt="ARKer"/>
                     </a>
                     <!-- ***** Logo End ***** -->
+                    <input type="checkbox" id="BlackNWhite" checked>
+                    <label for="BlackNWhite" style="position: absolute;right: 110px;top: 24px;border-color: #4a4a4a;border-style: solid;border-width: thin;">
+                        <span id="BWspan"><i class="fas fa-moon"></i></span></label>
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                         <li><a href="#welcome" class="active">Home</a></li>
@@ -74,79 +77,15 @@
             </div>
         </div>
     </div>
-</header>
-<!-- ***** Header Area End ***** -->
 
-<!-- ***** Welcome Area Start ***** -->
+</header>
+
 <div class="welcome-area" id="welcome">
 
-    <!-- ***** Header Text Start ***** -->
-  <!--  <div class="header-text">
-        <div class="container">
-            <div class="row">
-                <div class="offset-xl-3 col-xl-6 offset-lg-2 col-lg-8 col-md-12 col-sm-12"
-                     style="top: 77px;">
-                    <input type="text" placeholder="티커를 입력해주세요." id = "tickerText" class="tickerText form-control-sm"> </br>
-                    <a id="readJson" href="#features" class="main-button-slider">SEARCH</a>
-                </div>
-            </div>
-        </div>
-    </div>-->
-    <!-- ***** Header Text End ***** -->
 </div>
-<!-- ***** Welcome Area End ***** -->
 
-<!-- ***** Features Small Start ***** -->
-<!--<section class="section home-feature">-->
-<!--    <div class="container">-->
-<!--        <div class="row">-->
-<!--            <div class="col-lg-12">-->
-<!--                <div class="row">-->
-<!--                    &lt;!&ndash; ***** Features Small Item Start ***** &ndash;&gt;-->
-<!--                    <div class="col-lg-4 col-md-6 col-sm-6 col-12"-->
-<!--                         data-scroll-reveal="enter bottom move 50px over 0.6s after 0.2s">-->
-<!--                        <div class="features-small-item">-->
-<!--                            <div class="icon">-->
-<!--                                <i><img src="assets/images/featured-item-01.png" alt=""></i>-->
-<!--                            </div>-->
-<!--                            <h5 class="features-title">Modern Strategy</h5>-->
-<!--                            <p>Customize anything in this template to fit your website needs</p>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    &lt;!&ndash; ***** Features Small Item End ***** &ndash;&gt;-->
-
-<!--                    &lt;!&ndash; ***** Features Small Item Start ***** &ndash;&gt;-->
-<!--                    <div class="col-lg-4 col-md-6 col-sm-6 col-12"-->
-<!--                         data-scroll-reveal="enter bottom move 50px over 0.6s after 0.4s">-->
-<!--                        <div class="features-small-item">-->
-<!--                            <div class="icon">-->
-<!--                                <i><img src="assets/images/featured-item-01.png" alt=""></i>-->
-<!--                            </div>-->
-<!--                            <h5 class="features-title">Best Relationship</h5>-->
-<!--                            <p>Contact us immediately if you have a question in mind</p>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    &lt;!&ndash; ***** Features Small Item End ***** &ndash;&gt;-->
-
-<!--                    &lt;!&ndash; ***** Features Small Item Start ***** &ndash;&gt;-->
-<!--                    <div class="col-lg-4 col-md-6 col-sm-6 col-12"-->
-<!--                         data-scroll-reveal="enter bottom move 50px over 0.6s after 0.6s">-->
-<!--                        <div class="features-small-item">-->
-<!--                            <div class="icon">-->
-<!--                                <i><img src="assets/images/featured-item-01.png" alt=""></i>-->
-<!--                            </div>-->
-<!--                            <h5 class="features-title">Ultimate Marketing</h5>-->
-<!--                            <p>You just need to tell your friends about our free templates</p>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    &lt;!&ndash; ***** Features Small Item End ***** &ndash;&gt;-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</section>-->
-<!-- ***** Features Small End ***** -->
-
+<section class="section">
+</section>
 <section class="section ark-search" id="blog" style="padding-top: 50px">
     <div class="container">
         <div class="row" style="display: grid">
@@ -259,60 +198,6 @@
             </div>
         </div>
 
-
-<!--        <div class="row">-->
-<!--            <div class="col-lg-4 col-md-6 col-sm-12">-->
-<!--                <div class="blog-post-thumb">-->
-<!--                    <div class="img">-->
-<!--                        <img src="assets/images/blog-item-01.png" alt="">-->
-<!--                    </div>-->
-<!--                    <div class="blog-content">-->
-<!--                        <h3>-->
-<!--                            <a href="#">Vivamus ac vehicula dui</a>-->
-<!--                        </h3>-->
-<!--                        <div class="text">-->
-<!--                            Cras aliquet ligula dui, vitae fermentum velit tincidunt id. Praesent eu finibus nunc. Nulla-->
-<!--                            in sagittis eros. Aliquam egestas augue.-->
-<!--                        </div>-->
-<!--                        <a href="#" class="main-button">Read More</a>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="col-lg-4 col-md-6 col-sm-12">-->
-<!--                <div class="blog-post-thumb">-->
-<!--                    <div class="img">-->
-<!--                        <img src="assets/images/blog-item-02.png" alt="">-->
-<!--                    </div>-->
-<!--                    <div class="blog-content">-->
-<!--                        <h3>-->
-<!--                            <a href="#">Phasellus convallis augue</a>-->
-<!--                        </h3>-->
-<!--                        <div class="text">-->
-<!--                            Aliquam commodo ornare nisl, et scelerisque nisl dignissim ac. Vestibulum finibus urna ut-->
-<!--                            velit venenatis, vel ultrices sapien mattis.-->
-<!--                        </div>-->
-<!--                        <a href="#" class="main-button">Read More</a>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="col-lg-4 col-md-6 col-sm-12">-->
-<!--                <div class="blog-post-thumb">-->
-<!--                    <div class="img">-->
-<!--                        <img src="assets/images/blog-item-03.png" alt="">-->
-<!--                    </div>-->
-<!--                    <div class="blog-content">-->
-<!--                        <h3>-->
-<!--                            <a href="#">Nam gravida purus non</a>-->
-<!--                        </h3>-->
-<!--                        <div class="text">-->
-<!--                            Maecenas eu erat vitae dui convallis consequat vel gravida nulla. Vestibulum finibus euismod-->
-<!--                            odio, ut tempus enim varius eu.-->
-<!--                        </div>-->
-<!--                        <a href="#" class="main-button">Read More</a>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
     </div>
 
 
@@ -326,77 +211,6 @@
         </script>
     </div>
 </section>
-<!-- ***** Blog End ***** -->
-
-<!-- ***** Contact Us Start ***** -->
-<!--<section class="section colored" id="contact-us">
-    <div class="container">
-        &lt;!&ndash; ***** Section Title Start ***** &ndash;&gt;
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="center-heading">
-                    <h2 class="section-title">Talk To Us</h2>
-                </div>
-            </div>
-            <div class="offset-lg-3 col-lg-6">
-                <div class="center-text">
-                    <p>Maecenas pellentesque ante faucibus lectus vulputate sollicitudin. Cras feugiat hendrerit
-                        semper.</p>
-                </div>
-            </div>
-        </div>
-        &lt;!&ndash; ***** Section Title End ***** &ndash;&gt;
-
-        <div class="row">
-            &lt;!&ndash; ***** Contact Text Start ***** &ndash;&gt;
-            <div class="col-lg-4 col-md-6 col-sm-12">
-                <h5 class="margin-bottom-30">Keep in touch</h5>
-                <div class="contact-text">
-                    <p>110-220 Quisque diam odio, maximus ac consectetur eu, 10260
-                        <br>auctor non lorem</p>
-                    <p>You are NOT allowed to re-distribute Softy Pinko template on any template collection websites.
-                        Thank you.</p>
-                </div>
-            </div>
-            &lt;!&ndash; ***** Contact Text End ***** &ndash;&gt;
-
-            &lt;!&ndash; ***** Contact Form Start ***** &ndash;&gt;
-            <div class="col-lg-8 col-md-6 col-sm-12">
-                <div class="contact-form">
-                    <form id="contact" action="" method="get">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-12 col-sm-12">
-                                <fieldset>
-                                    <input name="name" type="text" class="form-control" id="name"
-                                           placeholder="Full Name" required="">
-                                </fieldset>
-                            </div>
-                            <div class="col-lg-6 col-md-12 col-sm-12">
-                                <fieldset>
-                                    <input name="email" type="email" class="form-control" id="email"
-                                           placeholder="E-Mail Address" required="">
-                                </fieldset>
-                            </div>
-                            <div class="col-lg-12">
-                                <fieldset>
-                                    <textarea name="message" rows="6" class="form-control" id="message"
-                                              placeholder="Your Message" required=""></textarea>
-                                </fieldset>
-                            </div>
-                            <div class="col-lg-12">
-                                <fieldset>
-                                    <button type="submit" id="form-submit" class="main-button">Send Message</button>
-                                </fieldset>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            &lt;!&ndash; ***** Contact Form End ***** &ndash;&gt;
-        </div>
-    </div>
-</section>-->
-<!-- ***** Contact Us End ***** -->
 
 <!-- ***** Footer Start ***** -->
 <footer>
@@ -429,6 +243,7 @@
 <script src="assets/plugin/lodash-4.17.15.js"></script>
 <script src="assets/plugin/datatables.min.js"></script>
 <script src="assets/plugin/sweetalert2.js"></script>
+<script src="assets/js/customAlert.js"></script>
 <!--<script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>-->
 <!--<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/plug-ins/1.10.10/sorting/datetime-moment.js"></script>-->
 <script src="https://cdn.datatables.net/plug-ins/1.10.12/sorting/date-eu.js"></script>
