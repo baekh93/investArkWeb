@@ -33,6 +33,10 @@
         contentType: 'application/json',
         dataType: 'json',// xml, json, script, html
         beforeSend: function (jqXHR) {
+            var loadingHtml = ' <div id="loading" style="z-index: 1005;position: absolute; top:33%;left:25%; text-align:center;">' +
+                '<div className="loading_box"><img src="assets/images/loading.gif"/></div>' +
+                '</div>'
+            $('html').fadeTo("fast", 1).append(loadingHtml);
         },// 서버 요청 전 호출 되는 함수 return false; 일 경우 요청 중단
         success: function (jqXHR) {
             $('.tickerText').autocomplete({
@@ -41,13 +45,13 @@
                 minLength: 1
 
             })
-            debugger
+
         },// 요청 완료 시
         error: function (jqXHR) {
             toast.toast("error", "error","center");
         },// 요청 실패.
         complete: function (jqXHR) {
-
+            $('html').fadeTo( "slow", 1 ).find('#loading').remove();
         }// 요청의 실패, 성공과 상관 없이 완료 될 경우 호출
     });
 
