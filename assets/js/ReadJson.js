@@ -105,17 +105,17 @@
                                 columnDefs: [
                                     {
                                         "render": function (data, type, row) {
-                                            var sp = data.split("/");
-                                            return sp[1] + "/" + sp[0] + "/" + sp[2];
+                                            var sp = data.split("-");
+                                            return sp[2] + "/" + sp[1] + "/" + sp[0];
                                         },
                                         "targets": 0
                                     },
 
                                     {
-                                        "render": function (data, type, row) {
-                                            if (row.change < 0.0) {
+                                        "render": function (data, type, row) { //row에 요청 데이터 포
+                                            if (row.change_shares < 0.0) {
                                                 return '<a style="color: red">' + addComma(data.toString()) + '</a>';
-                                            } else if (row.change > 0.0) {
+                                            } else if (row.change_shares > 0.0) {
                                                 return '<a style="color: #28a745">' + addComma(data.toString()) + '</a>';
                                             } else {
 
