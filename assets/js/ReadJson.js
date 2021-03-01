@@ -9,16 +9,19 @@
         'ARKG': undefined,
         'ARKF': undefined
     };
+
     $(".ark-search .ark-tab").on('click', function (e) {
         var name = this.innerText;
         // $("#" + name + "_wrapper").show();
         var $table = $("#" + name + "_wrapper");
         if ($table.hasClass('off')) {
             $table.removeClass('off');
+            $("#" + name + "-AD").show();
         } else {
             $table.addClass('off');
-        }
+            $("#" + name + "-AD").hide();
 
+        }
     })
 
     // ARKW_wrapper
@@ -38,6 +41,7 @@
         _.each(funds, function (fund) {
             // $('#' + fund + '_wrapper').hide();
             $('#' + fund + '_wrapper').addClass('off');
+            $('#'+fund + '-AD').hide();
         })
     }
 
@@ -56,7 +60,6 @@
     // data: JSON.stringify({
     //     "ticker": inputdata.toUpperCase()
     // }),// 전송할 데이터
-
 
     function searchTicker() {
         var inputdata = $('.tickerText').val();
@@ -158,7 +161,7 @@
                         }
                     })
                     if (jqXHR.ARKF.length + jqXHR.ARKG.length + jqXHR.ARKK.length + jqXHR.ARKQ.length + jqXHR.ARKW.length === 0) {
-                        toast.toast("error", "검색결과가 없습니다.","center");
+                        toast.toast("error", "no result","center");
                         $(".ticker-company")[0].innerText = "No result.."
                     }
 
@@ -173,7 +176,7 @@
                 }// 요청의 실패, 성공과 상관 없이 완료 될 경우 호출
             });
         }else {
-            toast.toast("warning", "내용을 입력하세요.","center");
+            toast.toast("warning", "no result","center");
         }
 
     }
