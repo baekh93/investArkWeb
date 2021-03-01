@@ -24,7 +24,6 @@
        },
        autoFocus: true,
         minLength: 1
-
     });*/
     $.ajax({
         url: url + "/start", // 요청 할 주소
