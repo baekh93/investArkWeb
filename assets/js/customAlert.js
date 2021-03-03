@@ -21,11 +21,47 @@ toast = (function () {
             title: msg,
         });
     };
-
     // target: document.getElementById('roadview-div')
 
+    var radioAlert = async () => {
+        const inputOptions = new Promise((resolve) => {
+            setTimeout(() => {
+                resolve({
+                    'LANGUAGE_ENGLISH': 'English',
+                    'LANGUAGE_KOREAN': 'Korean',
+                    'LANGUAGE_CHINA': 'China'
+                })
+            }, 1000)
+        })
+        const { value: language } = await Swal.fire({
+            title: '언어를 선택하세요.',
+            input: 'radio',
+            inputOptions: inputOptions,
+            closeOnEsc: false,
+            inputValidator: (value) => {
+                if (!value) {
+                    return 'You need to choose something!'
+                }
+            }
+        })
+        if (language) {
+            Swal.fire({ html: `You selected: ${language}` })
+        }
+    }
+var notice = () => {
+    Swal.fire({
+        icon: 'info',
+        title: arker_lan.popTit,
+        html: arker_lan.popMsg
+        // footer: '<a href>Why do I have this issue?</a>'
+    })
+
+}
+
     var module = {
-        toast: toast
+        toast: toast,
+        notice: notice,
+        radioAlert:radioAlert
     };
 
     return module;

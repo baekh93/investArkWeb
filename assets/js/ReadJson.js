@@ -1,4 +1,6 @@
 
+
+
 (function ($) {
     var url = 'https://paladin.mobi:5000';
     var funds = ['ARKK', 'ARKW', 'ARKQ', 'ARKG', 'ARKF'];
@@ -161,8 +163,8 @@
                         }
                     })
                     if (jqXHR.ARKF.length + jqXHR.ARKG.length + jqXHR.ARKK.length + jqXHR.ARKQ.length + jqXHR.ARKW.length === 0) {
-                        toast.toast("error", "no result","center");
-                        $(".ticker-company")[0].innerText = "No result.."
+                        toast.toast("error", arker_lan.noResult ,"center");
+                        $(".ticker-company")[0].innerText = arker_lan.noResult +".."
                     }
 
                 },// 요청 완료 시
@@ -199,6 +201,21 @@
             $("#logo-White").hide();
             $(".ark-search").removeClass("black-font");
         }
+    })
+
+    $(".selecetLan").change(function (e) {
+        switch (e.target.value) {
+            case "kor":
+                arker_lan = LANGUAGE.KOREAN;
+                break;
+            case "eng":
+                arker_lan = LANGUAGE.ENGLISH;
+                break;
+            case "chi":
+                arker_lan =LANGUAGE.CHINESE;
+                break;
+        }
+        $(".ticker-company")[0].innerText = "";
     })
     $('#readJson').on('click', searchTicker);
     $('#tickerText').keydown(function (key) {

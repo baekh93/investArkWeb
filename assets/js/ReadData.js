@@ -51,17 +51,14 @@
         },// 요청 실패.
         complete: function (jqXHR) {
             $('html').fadeTo( "slow", 1 ).find('#loading').remove();
+            toast.notice();
+            // toast.radioAlert();
         }// 요청의 실패, 성공과 상관 없이 완료 될 경우 호출
     });
 
 
     // target: document.getElementById('roadview-div')
 
-    var module = {
-        toast: toast
-    };
-
-    return module;
 
 
 })(window.jQuery);

@@ -120,7 +120,7 @@ background: black;
      cursor: pointer;
  }
 
-label {
+.main-nav label {
     display: block;
     position: absolute;
     width: 60px;
@@ -130,7 +130,7 @@ label {
     transition-duration: 0.2s;
 }
 
-label span{
+.main-nav label span{
     position: absolute;
     left: 3px;
     top: 2px;
@@ -144,8 +144,8 @@ label span{
 
 
 
-label:before,
-label:after{
+.main-nav label:before,
+.main-nav label:after{
     position: absolute;
     top: 0;
     width: 34px;
@@ -165,12 +165,12 @@ label:after{
     text-align: center;
 }*/
 
-label:before {
+.main-nav label:before {
     left: 0;
 
 }
 
-label:after {
+.main-nav label:after {
     right: 0;
 }
 
@@ -189,4 +189,12 @@ input:checked + label span {
 }
 .logo-white {
 
+}
+
+.form-select-sm {
+    padding-top: 0.35rem;
+    padding-bottom: 0.35rem;
+    padding-left: 0.4rem;
+    font-size: 0.875rem;
+    border-radius: 7px;
 }
