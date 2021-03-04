@@ -1,7 +1,10 @@
 (function ($) {
 
     var url = 'https://paladin.mobi:5000';
-
+    var loadingHtml = ' <div id="loading" style="z-index: 1005;position: absolute; top:33%;left:25%; text-align:center;">' +
+        '<div className="loading_box"><img src="assets/images/loading.gif"/></div>' +
+        '</div>'
+    $('html').fadeTo("fast", 1).append(loadingHtml);
  /*   $('.tickerText').autocomplete({
        source: function (request, response) {
            $.ajax({
@@ -32,10 +35,7 @@
         contentType: 'application/json',
         dataType: 'json',// xml, json, script, html
         beforeSend: function (jqXHR) {
-            var loadingHtml = ' <div id="loading" style="z-index: 1005;position: absolute; top:33%;left:25%; text-align:center;">' +
-                '<div className="loading_box"><img src="assets/images/loading.gif"/></div>' +
-                '</div>'
-            $('html').fadeTo("fast", 1).append(loadingHtml);
+
         },// 서버 요청 전 호출 되는 함수 return false; 일 경우 요청 중단
         success: function (jqXHR) {
             $('.tickerText').autocomplete({
