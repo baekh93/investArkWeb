@@ -3,8 +3,12 @@
 window.LANGUAGE = {
     KOREAN: {
         popTit : '공지',
-        popMsg : `<b>ARKer</b>는 ARK Invest에서 운용하는 ETF에 포함된 개별종목들의 거래내역을 정리하여 제공하여 사용자에게 좀 더 합리적인 투자를 하도록 도와줍니다.</br> <span style="color: red"><b>ARKer</b>는 사용자에게 매수와 매도를 권장하지
-        않으며 투자에 대한 책임은 본인에게 있습니다.</span>`,
+        popMsg : `<div style="text-align: left">ARK Invest Active ETF의 모든 종목의 거래정보를 지금 바로 확인하세요!</br>
+ARKK, ARKW, ARKQ, ARKG, ARKF ETF에서 거래하는 모든 개별종목의 하루단위 거래내역을 확인할 수 있습니다.</br>
+관심있는 종목을 ARK Invest 거래 정보와 비교해보세요.</br></br>
+ <span style="color: red">* <b>ARKer</b>는 ARK Invest 공식 홈페이지(ark-invest.com)에서 제공하는 거래내역을 기반으로합니다.</br>
+ * <b>ARKer</b>는 매수 혹은 매도를 권유하지 않으며, 단순히 ARK Invest에서 운용하는 ETF에 포함된 개별종목들의 거래내역을 정리하여 제공합니다.</br>
+ * 대한민국 시간 기준으로 매일 오전 9시 30분 또는 오후 12시 30분에 거래내역이 갱신됩니다. (휴장일 제외)</br></span></div>`,
         noResult: "검색결과가 없습니다."
     },
     ENGLISH: {
@@ -19,6 +23,6 @@ window.LANGUAGE = {
         noResult: "没有结果"
     }
 }
-window.arker_lan = LANGUAGE.ENGLISH;
+window.arker_lan = LANGUAGE.KOREAN;
 
 })(window.jQuery);
