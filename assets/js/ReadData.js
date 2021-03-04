@@ -52,6 +52,24 @@
         complete: function (jqXHR) {
             $('html').fadeTo( "slow", 1 ).find('#loading').remove();//
             toast.notice();
+
+            const $swal = $('#swal2-content');
+            if($swal) {
+
+            }
+            $(".selecetLanNotice").change(function (e) {
+                switch (e.target.value) {
+                    case "kor":
+                        $swal[0].innerHTML = LANGUAGE.KOREAN.popMsg;
+                        break;
+                    case "eng":
+                        $swal[0].innerHTML = LANGUAGE.ENGLISH.popMsg;
+                        break;
+                    case "chi":
+                        $swal[0].innerHTML =LANGUAGE.CHINESE.popMsg;
+                        break;
+                }
+            })
             // toast.radioAlert();
         }// 요청의 실패, 성공과 상관 없이 완료 될 경우 호출
     });

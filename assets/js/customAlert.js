@@ -49,9 +49,14 @@ toast = (function () {
         }
     }
 var notice = () => {
+        var selectEle =`<select class="form-select form-select-sm mb-3 selecetLanNotice" aria-label=".form-select-sm example">
+                        <option selected value="eng">English</option>
+                        <option value="kor">Korean</option>
+                        <option value="chi">Chinese</option>
+                    </select>`
     Swal.fire({
         icon: 'info',
-        title: arker_lan.popTit,
+        title: selectEle,
         html: arker_lan.popMsg
         // footer: '<a href>Why do I have this issue?</a>'
     })
