@@ -1,10 +1,10 @@
 (function ($) {
 
     var url = 'https://paladin.mobi:5000';
-    var loadingHtml = ' <div id="loading" style="z-index: 1005;position: absolute; top:33%;left:25%; text-align:center;">' +
-        '<div className="loading_box"><img src="assets/images/loading.gif"/></div>' +
-        '</div>'
-    $('html').fadeTo("fast", 1).append(loadingHtml);
+    // var loadingHtml = ' <div id="loading" style="z-index: 1005;position: absolute; top:33%;left:25%; text-align:center;">' +
+    //     '<div className="loading_box"><img src="assets/images/loading.gif"/></div>' +
+    //     '</div>'
+    // $('html').fadeTo("fast", 1).append(loadingHtml);
  /*   $('.tickerText').autocomplete({
        source: function (request, response) {
            $.ajax({
@@ -50,7 +50,7 @@
             toast.toast("error", "error","center");
         },// 요청 실패.
         complete: function (jqXHR) {
-            $('html').fadeTo( "slow", 1 ).find('#loading').remove();
+            $('html').fadeTo( "slow", 1 ).find('#loading').remove();//
             toast.notice();
             // toast.radioAlert();
         }// 요청의 실패, 성공과 상관 없이 완료 될 경우 호출
