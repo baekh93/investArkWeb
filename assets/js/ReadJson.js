@@ -102,7 +102,7 @@
                                 searching: false,
                                 paging: false,
                                 // pageLength: 5,
-                                scrollY: "800px",
+                                scrollY: "550px",
                                 scrollX: true,
                                 scrollCollapse: true,
                                 lengthChange: false,
