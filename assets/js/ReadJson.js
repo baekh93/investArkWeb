@@ -97,6 +97,7 @@
                             // $.fn.dataTable.moment( 'DD/MM/YYYY HH:mm:ss' );    //Formatação com Hora
                             // $.fn.dataTable.moment('DD/MM/YYYY');
                             var dataTable = $('#' + fund).DataTable({
+                                dom : 'Bfrtip',
                                 select: false,
                                 info: false,
                                 searching: false,
@@ -121,7 +122,7 @@
                                     {"data": "percent"},
                                     {"data": "change_shares"},
                                     {"data": "change_value"},
-                                    {"data": "change_percent"}                                    
+                                    {"data": "change_percent"}
                                 ],
                                 columnDefs: [
                                     // Date 2021-03-05
@@ -158,7 +159,7 @@
                                         "targets": 2,
                                         "className": "column-text-center"
                                     },
-                                    
+
                                     // Weight
                                     // { "visible": false,  "targets": [ 3 ] }
                                     {
@@ -178,7 +179,8 @@
                                         },
                                         "targets": 4,
                                         "className": "column-text-center",
-                                        "visible": false
+                                        "visible" : false
+
                                     },
                                     { // Change Value
                                         "render": function (data, type, row) {
@@ -186,14 +188,32 @@
                                         },
                                         "targets": 5,
                                         "className": "column-text-center",
-                                        "visible": false
+                                        "visible" : false
+
                                     },
                                     { // Change Weight
                                         "targets": 6,
                                         "className": "column-text-center",
-                                        "visible": false
+                                        "visible" : false
                                     }
-                                ]
+                                ],
+                                buttons : [
+                                    {
+                                        extend: 'colvisGroup',
+                                        text: 'basic info',
+                                        show: [1,2,3],
+                                        hide:[4,5,6]
+
+                                    },
+                                    {
+                                        extend: 'colvisGroup',
+                                        text: 'change info',
+                                        show: [4,5,6],
+                                        hide: [1,2,3]
+                                    }
+
+                                ],
+
                             })
                             dt[fund] = dataTable;
 

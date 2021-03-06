@@ -58,6 +58,11 @@
     background-color: #fff;
     border: 1px solid #dee2e6;
 }
+.ark-search table td,
+.ark-search table tr {
+    background-color: #00000000 !important;
+}
+
 .ark-search table th,
 .ark-search table td {
     color: white;
@@ -201,6 +206,14 @@ input:checked + label span {
 
 .column-text-center {
     text-align: center;
+}
+
+.buttons-colvisGroup {
+    background-color: gray !important;
+}
+.dt-buttons {
+    text-align: left !important;
+    margin-top: 4px;
 }
 /* table.dataTable {
     margin: 0 auto;
