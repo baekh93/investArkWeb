@@ -375,7 +375,8 @@ header
 */
 .header-area {
   position: fixed;
-  top: 0px;
+  /* top: 0px; */
+  top: 4%;
   left: 0px;
   right: 0px;
   z-index: 100;
@@ -388,10 +389,12 @@ header
 
 .header-area .main-nav {
   box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
-  border-radius: 40px;
+  /* border-radius: 40px; */
+  border-radius: 20px;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
-  min-height: 80px;
+  /* min-height: 80px; */
+  min-height: 60px;
   /*background: black;*/
 }
 
@@ -457,7 +460,8 @@ header
   cursor: pointer;
   display: block;
   position: absolute;
-  top: 23px;
+  /* top: 23px; */
+  top: 15px;
   width: 32px;
   height: 40px;
   text-indent: -9999em;
@@ -585,10 +589,12 @@ header
   .header-area .container {
     padding: 0px;
   }
+
   .header-area .logo {
     margin-top: 27px !important;
     margin-left: 30px;
   }
+
   .header-area .menu-trigger {
     display: block !important;
   }

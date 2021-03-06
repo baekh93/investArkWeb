@@ -198,3 +198,15 @@ input:checked + label span {
     font-size: 0.875rem;
     border-radius: 7px;
 }
+
+.column-text-center {
+    text-align: center;
+}
+/* table.dataTable {
+    margin: 0 auto;
+  } */
+
+/* div.dataTables_wrapper {
+    width: 100%;
+    margin: 0 auto;
+} */

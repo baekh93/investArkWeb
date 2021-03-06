@@ -77,8 +77,8 @@
                 },
                 dataType: 'json',// xml, json, script, html
                 beforeSend: function (jqXHR) {
-                    var loadingHtml = ' <div id="loading" style="z-index: 1005;position: absolute; top:33%;left:25%; text-align:center;">' +
-                        '<div className="loading_box"><img src="assets/images/loading.gif"/></div>' +
+                    var loadingHtml = ' <div id="loading" style="z-index: 1005;position: absolute; top:15%;left:23%; text-align:center;">' +
+                        '<div className="loading_box"><img src="assets/images/loading.gif"></div>' +
                         '</div>'
                     $('.ark-search').fadeTo("fast", 0.7).append(loadingHtml);
                 },// 서버 요청 전 호출 되는 함수 return false; 일 경우 요청 중단
@@ -97,6 +97,19 @@
                             // $.fn.dataTable.moment( 'DD/MM/YYYY HH:mm:ss' );    //Formatação com Hora
                             // $.fn.dataTable.moment('DD/MM/YYYY');
                             var dataTable = $('#' + fund).DataTable({
+                                select: false,
+                                info: false,
+                                searching: false,
+                                paging: false,
+                                // pageLength: 5,
+                                scrollY: "800px",
+                                scrollX: true,
+                                scrollCollapse: true,
+                                lengthChange: false,
+                                order: [[0, "desc"]],
+                                // fixedColumns: {
+                                //     leftColumns: 1
+                                // },
                                 data: jqXHR[fund],
                                 columns: [
                                     {
@@ -105,17 +118,23 @@
                                     },
                                     {"data": "shares"},
                                     {"data": "value"},
-                                    {"data": "percent"}
+                                    {"data": "percent"},
+                                    {"data": "change_shares"},
+                                    {"data": "change_value"},
+                                    {"data": "change_percent"}                                    
                                 ],
                                 columnDefs: [
+                                    // Date 2021-03-05
                                     {
                                         "render": function (data, type, row) {
                                             var sp = data.split("-");
                                             return sp[2] + "/" + sp[1] + "/" + sp[0];
                                         },
-                                        "targets": 0
+                                        "width": "20%;",
+                                        "targets": 0,
+                                        "className": "column-text-center"
                                     },
-
+                                    // Shares
                                     {
                                         "render": function (data, type, row) { //row에 요청 데이터 포
                                             if (row.change_shares < 0.0) {
@@ -127,34 +146,56 @@
                                                 return '<a>' + addComma(data.toString()) + '</a>';
                                             }
                                         },
-                                        "targets": 1
+                                        "targets": 1,
+                                        "className": "column-text-center"
                                     },
-
+                                    // Value
                                     {
                                         "render": function (data, type, row) {
 
                                             return addComma(data.toString());
                                         },
-                                        "targets": 2
-                                    }
-
+                                        "targets": 2,
+                                        "className": "column-text-center"
+                                    },
+                                    
+                                    // Weight
                                     // { "visible": false,  "targets": [ 3 ] }
-                                ],
+                                    {
+                                        "targets": 3,
+                                        "className": "column-text-center"
+                                    },
+                                    { // Change Shares
+                                        "render": function (data, type, row) { //row에 요청 데이터 포
+                                            if (row.change_shares < 0.0) {
+                                                return '<a style="color: red">' + addComma(data.toString()) + '</a>';
+                                            } else if (row.change_shares > 0.0) {
+                                                return '<a style="color: #28a745">' + addComma(data.toString()) + '</a>';
+                                            } else {
 
-                                select: false,
-                                info: false,
-                                searching: false,
-                                paging: false,
-                                // pageLength: 5,
-                                scrollY: "500px",
-                                scrollX: false,
-                                scrollCollapse: true,
-                                lengthChange: false,
-                                order: [[0, "desc"]]
+                                                return '<a>' + addComma(data.toString()) + '</a>';
+                                            }
+                                        },
+                                        "targets": 4,
+                                        "className": "column-text-center",
+                                        "visible": false
+                                    },
+                                    { // Change Value
+                                        "render": function (data, type, row) {
+                                            return addComma(data.toString());
+                                        },
+                                        "targets": 5,
+                                        "className": "column-text-center",
+                                        "visible": false
+                                    },
+                                    { // Change Weight
+                                        "targets": 6,
+                                        "className": "column-text-center",
+                                        "visible": false
+                                    }
+                                ]
                             })
                             dt[fund] = dataTable;
-                            // $($.fn.dataTable.tables(true)).DataTable()
-                            //     .columns.adjust();
 
                         } else {
                             $('.ark-tab-' + fund).removeClass('btn-success font-weigt-bold');
