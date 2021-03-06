@@ -75,6 +75,10 @@
     color: black !important;
 }
 
+.ark-search table thead th {
+    display: table-cell; vertical-align: middle;
+}
+
 .ticker-company {
     color: gray;
     font-weight: bold;
