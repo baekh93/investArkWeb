@@ -61,12 +61,15 @@
                 switch (e.target.value) {
                     case "kor":
                         $swal[0].innerHTML = LANGUAGE.KOREAN.popMsg;
+                        arker_lan = LANGUAGE.KOREAN;
                         break;
                     case "eng":
                         $swal[0].innerHTML = LANGUAGE.ENGLISH.popMsg;
+                        arker_lan =LANGUAGE.ENGLISH;
                         break;
                     case "chi":
                         $swal[0].innerHTML =LANGUAGE.CHINESE.popMsg;
+                        arker_lan = LANGUAGE.CHINESE;
                         break;
                 }
             })
