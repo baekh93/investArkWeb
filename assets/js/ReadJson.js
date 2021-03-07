@@ -200,14 +200,14 @@
                                 buttons : [
                                     {
                                         extend: 'colvisGroup',
-                                        text: 'basic info',
+                                        text: 'BASIC',
                                         show: [1,2,3],
                                         hide:[4,5,6]
 
                                     },
                                     {
                                         extend: 'colvisGroup',
-                                        text: 'change info',
+                                        text: 'CHANGE',
                                         show: [4,5,6],
                                         hide: [1,2,3]
                                     }

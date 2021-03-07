@@ -49,17 +49,20 @@
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- top 28 to 19 -->
-                    <select class="form-select form-select-sm mb-3 selecetLan" aria-label=".form-select-sm example" style="position: absolute;right: 160px;top: 19px;">
+                    <div style="position: absolute;right: 155px;top: 19px; display: flex">
+                        <select class="form-select form-select-sm mb-3 selecetLan" aria-label=".form-select-sm example" style="">
+                            <option selected value="eng">English</option>
+                            <option value="kor">Korean</option>
+                            <option value="chi">Chinese</option>
+                        </select>
 
-                        <option selected value="eng">English</option>
-                        <option value="kor">Korean</option>
-                        <option value="chi">Chinese</option>
-                    </select>
+                        <input type="checkbox" id="BlackNWhite">
+                        <!-- top 24 to 16 -->
+                        <label for="BlackNWhite" id="ck-label" style="position: absolute; left: 90px ; border-color: #4a4a4a;border-style: solid;border-width: thin;">
+                            <span id="BWspan"><i class="fas fa-moon"></i></span></label>
+                    </div>
 
-                    <input type="checkbox" id="BlackNWhite">
-                    <!-- top 24 to 16 -->
-                    <label for="BlackNWhite" id="ck-label" style="position: absolute;right: 90px;top: 16px;border-color: #4a4a4a;border-style: solid;border-width: thin;">
-                        <span id="BWspan"><i class="fas fa-moon"></i></span></label>
+
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                         <li><a href="#welcome" class="active">Home</a></li>

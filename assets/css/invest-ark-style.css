@@ -213,10 +213,19 @@ input:checked + label span {
 }
 
 .buttons-colvisGroup {
-    background-color: gray !important;
+    /*background-color: gray !important;/*/
+    FONT-SIZE: 10px !important;
+    width: 60px;
+    height: 25px;
+    /* color: white; */
+    font-weight: bold;
+    background-color: #bdbcbc !important;
+    border-color: #bdbcbc !important;
+    padding: 3px 2px 2px 2px !important;
+
 }
 .dt-buttons {
-    text-align: left !important;
+    text-align: right !important;
     margin-top: 4px;
 }
 /* table.dataTable {
