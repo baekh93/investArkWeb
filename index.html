@@ -15,7 +15,9 @@
 
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
 
-    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
+<!--    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet"> <!--CDN 링크 -->
+
 
     <link rel="stylesheet" type="text/css" href="assets/css/templatemo-softy-pinko.css">
     <link rel="stylesheet" type="text/css" href="assets/css/invest-ark-style.css">
@@ -40,7 +42,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <nav class="main-nav">
+                <nav class="main-nav" style="background-color: black">
                     <!-- ***** Logo Start ***** -->
                     <a href="#" class="logo">
                         <!-- top -14 to -23 -->
@@ -52,8 +54,9 @@
                     <div style="position: absolute;right: 155px;top: 17px;">
                         <input type="checkbox" id="BlackNWhite">
                         <!-- top 24 to 16 -->
+                        <button id="srcShowHide" class="btn btn-danger" style="position: absolute; top: -1px; left: -43px;height: 34px;padding-top: 5px;width: 40px;"><i class="fas fa-search"></i></button>
                         <label for="BlackNWhite" id="ck-label" style="position: absolute; left: 10px ; border-color: #4a4a4a;border-style: solid;border-width: thin;">
-                            <span id="BWspan"><i class="fas fa-moon"></i></span></label>
+                            <span id="BWspan"></span></label>
                     </div>
 
 
@@ -75,10 +78,12 @@
 
             </div>
             <!-- top 0 to 13 -->
-            <div class="offset-xl-3 col-xl-6 offset-lg-2 col-lg-8 col-md-12 col-sm-12" style="top: 13px;display: contents;display: flex;">
+            <div id = "srcBox" style="display: none; margin: auto">
+            <div class="" style="top: 13px;display: contents;display: flex; margin: auto; padding: 5px 20px 20px 20px; background-color: black;
+                    border-bottom-right-radius: 20px; border-bottom-left-radius: 20px;">
                 <input type="text" placeholder="TSLA" id="tickerText" class="tickerText form-control-sm"> <br>
                 <a id="readJson" href="#features" class="btn btn-danger">SEARCH</a>
-            </div>
+            </div></div>
         </div>
     </div>
 

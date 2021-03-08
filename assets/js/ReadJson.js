@@ -279,6 +279,10 @@
         $(".ticker-company")[0].innerText = "";
     })
     $('#readJson').on('click', searchTicker);
+
+    $('#srcShowHide').on('click', function () {
+$('#srcBox').slideToggle();
+    })
     $('#tickerText').keydown(function (key) {
         // if (key.keyCode === 13) {
         //     searchTicker();

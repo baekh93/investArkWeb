@@ -1,4 +1,3 @@
-
 window.toast = window.toast || {};
 
 toast = (function () {

@@ -13,7 +13,7 @@
     color: #777;
     font-size: 14px;
     border: 1px solid #eee;
-    width: 55%;
+    width: 200px;
     height: 50px;
     outline: none;
     padding-left: 20px;
@@ -22,7 +22,7 @@
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    margin-bottom: 25px;
+    /*margin-bottom: 25px;*/
 }
 
 .on {
@@ -110,7 +110,7 @@
 
 #readJson {
     margin-right: auto;
-    width: 105px;
+    width: 100px;
     height: 50px;
     margin-left: 18px;
     border-radius: 25px;
