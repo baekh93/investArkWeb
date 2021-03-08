@@ -52,9 +52,9 @@
                     <!-- ***** Logo End ***** -->
                     <!-- top 28 to 19 -->
                     <div style="position: absolute;right: 155px;top: 17px;">
+                        <button id="srcShowHide" class="btn btn-danger" style="position: absolute; top: -1px; left: -43px;height: 34px;padding-top: 5px;width: 40px;"><i class="fas fa-search"></i></button>
                         <input type="checkbox" id="BlackNWhite">
                         <!-- top 24 to 16 -->
-                        <button id="srcShowHide" class="btn btn-danger" style="position: absolute; top: -1px; left: -43px;height: 34px;padding-top: 5px;width: 40px;"><i class="fas fa-search"></i></button>
                         <label for="BlackNWhite" id="ck-label" style="position: absolute; left: 10px ; border-color: #4a4a4a;border-style: solid;border-width: thin;">
                             <span id="BWspan"></span></label>
                     </div>
@@ -79,7 +79,7 @@
             </div>
             <!-- top 0 to 13 -->
             <div id = "srcBox" style="margin: auto">
-            <div class="" style="top: 13px;display: contents;display: flex; margin: auto; padding: 5px 20px 20px 20px; background-color: black;
+            <div id="srcBoxIn" style="top: 13px;display: contents;display: flex; margin: auto; padding: 5px 20px 20px 20px; background-color: black;
                     border-bottom-right-radius: 20px; border-bottom-left-radius: 20px;">
                 <input type="text" placeholder="TSLA" id="tickerText" class="tickerText form-control-sm"> <br>
                 <a id="readJson" href="#features" class="btn btn-danger">SEARCH</a>
@@ -323,8 +323,8 @@
 </script>
 
 </body>
-<div id="loading" style="z-index: 1005;position: absolute; top:33%;left:23%; text-align:center;"> <div>
-    classname="loading_box"><img src="assets/images/loading.gif"></div>
+<div id="loading" style="z-index: 1005;position: absolute; top:33%;left:23%; text-align:center;">
+    <div classname="loading_box"><img src="assets/images/loading.gif"></div>
 
 </div>
 </html>

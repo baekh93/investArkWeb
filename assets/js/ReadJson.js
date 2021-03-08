@@ -246,14 +246,18 @@
 
     $("#BlackNWhite").change(function (e){
         if(this.checked) {//화이트
-            $(".welcome-area")[0].style.background = "white"
-            $(document.body)[0].style.background="white"
+            $(".main-nav")[0].style.background = 'white';
+            $("#srcBoxIn")[0].style.background='white';
+            $(".welcome-area")[0].style.background = "white";
+            $(document.body)[0].style.background="white";
             $("#BWspan")[0].style.background ="black";
             $("#ck-label")[0].style.background="white"
             $("#logo-black").hide();
             $("#logo-White").show();
             $(".ark-search").addClass("black-font");
         }else {//블랙
+            $(".main-nav")[0].style.background = 'black';
+            $("#srcBoxIn")[0].style.background='black';
             $(".welcome-area")[0].style.background = "black"
             $(document.body)[0].style.background="black"
             $("#BWspan")[0].style.background ="white";
