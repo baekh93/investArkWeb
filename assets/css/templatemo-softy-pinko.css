@@ -374,7 +374,8 @@ header
 ---------------------------------------------
 */
 .header-area {
-  position: fixed;
+  /* position: fixed; */
+  position: absolute;
   /* top: 0px; */
   top: 5%;
   left: 0px;
