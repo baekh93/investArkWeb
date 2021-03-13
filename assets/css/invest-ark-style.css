@@ -229,6 +229,11 @@ input:checked + label span {
     margin-top: 5px;
     margin-bottom: 2px;
 }
+
+.ark-search .container {
+    padding-right: 5px;
+    padding-left: 5px;
+}
 /* table.dataTable {
     margin: 0 auto;
   } */

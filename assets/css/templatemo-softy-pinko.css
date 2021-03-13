@@ -1453,7 +1453,8 @@ footer
 ---------------------------------------------
 */
 footer {
-  background-image: linear-gradient(127deg, black 0%, dimgray 91%);
+  /*background-image: linear-gradient(127deg, black 0%, dimgray 91%);*/
+  margin-top: auto;
   padding-top: 30px;
 }
 
