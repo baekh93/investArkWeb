@@ -242,3 +242,25 @@ input:checked + label span {
     width: 100%;
     margin: 0 auto;
 } */
+
+.box {
+    width: 35px;
+    height: 35px;
+    border-radius: 70%;
+    overflow: hidden;
+
+    position: absolute;
+    left: 33px;
+}
+.profile {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.abcRioButton.abcRioButtonLightBlue {
+    border-radius: 70%;
+    width: 35px !important;
+    height: 35px !important;
+    position: absolute;
+    left: 33px;
+}

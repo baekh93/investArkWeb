@@ -77,6 +77,19 @@
         }// 요청의 실패, 성공과 상관 없이 완료 될 경우 호출
     });
 
+    function onSignIn(googleUser) {
+        debugger
+        var profile = googleUser.getBasicProfile();
+        debugger
+            console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+            console.log('Name: ' + profile.getName());
+            console.log('Image URL: ' + profile.getImageUrl());
+            console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+
+    }
+    // $('.g-signin2').on('click', onSignIn);
+
+
 
     // target: document.getElementById('roadview-div')
 

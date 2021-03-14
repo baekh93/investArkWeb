@@ -1,5 +1,10 @@
 (function ($) {
-
+window.kser = {
+    n : undefined,
+    id : undefined,
+    img : undefined,
+    em : undefined
+}
 window.LANGUAGE = {
     KOREAN: {
         popTit : '공지',

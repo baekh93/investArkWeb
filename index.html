@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <script data-ad-client="ca-pub-3054886891885392" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <html lang="en" style="background-color: black">
-<head>
 
+<head>
+    <meta name="google-signin-client_id" content="529807042809-3tn6l587kn30jnd1ee3uui2bf9266aar.apps.googleusercontent.com">
     <meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=no; viewport-fit = cover" />
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <meta charset="utf-8">
@@ -83,28 +84,33 @@
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- top 28 to 19 -->
-                    <div style="position: absolute;right: 155px;top: 17px;">
+                    <div style="position: absolute;right: 98px;top: 17px;">
 <!--                        <button id="srcShowHide" class="btn btn-danger" style="position: absolute; top: -1px; left: -43px;height: 34px;padding-top: 5px;width: 40px;"><i class="fas fa-search"></i></button>-->
                         <input type="checkbox" id="BlackNWhite">
                         <!-- top 24 to 16 -->
-                        <label for="BlackNWhite" id="ck-label" style="position: absolute; left: 10px ; border-color: #4a4a4a;border-style: solid;border-width: thin;">
+                        <label for="BlackNWhite" id="ck-label" style="position: absolute;left: -40px; border-color: #4a4a4a;border-style: solid;border-width: thin;">
                             <span id="BWspan"></span></label>
+
+                        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                        <div class="box" style="background: #BDBDBD; display: none" >
+                            <img class="profile" src="https://lh3.googleusercontent.com/a-/AOh14GgypDL2Pbw6-3Hj-084i-Rg4epV4gYF7MgNb1CbCA=s96-c">
+                        </div>
                     </div>
 
 
                     <!-- ***** Menu Start ***** -->
-                    <ul class="nav">
-                        <li><a href="#welcome" class="active">Home</a></li>
-<!--                        <li><a href="#features">About</a></li>-->
-<!--                        <li><a href="#work-process">Work Process</a></li>-->
-<!--                        <li><a href="#testimonials">Testimonials</a></li>-->
-<!--                        <li><a href="#pricing-plans">Pricing Tables</a></li>-->
-<!--                        <li><a href="#blog">BOTTOM</a></li>-->
-<!--                        <li><a href="#contact-us">Contact Us</a></li>-->
-                    </ul>
-                    <a class='menu-trigger'>
-                        <span>Menu</span>
-                    </a>
+<!--                    <ul class="nav">-->
+<!--                        <li><a href="#welcome" class="active">Home</a></li>-->
+<!--&lt;!&ndash;                        <li><a href="#features">About</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <li><a href="#work-process">Work Process</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <li><a href="#testimonials">Testimonials</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <li><a href="#pricing-plans">Pricing Tables</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <li><a href="#blog">BOTTOM</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <li><a href="#contact-us">Contact Us</a></li>&ndash;&gt;-->
+<!--                    </ul>-->
+<!--                    <a class='menu-trigger'>-->
+<!--                        <span>Menu</span>-->
+<!--                    </a>-->
                     <!-- ***** Menu End ***** -->
                 </nav>
 
@@ -304,6 +310,7 @@
 <script src="assets/js/popper.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
 <script src="assets/js/language.js"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
 <script src="assets/js/ReadData.js"></script>
 <script src="assets/js/ReadJson.js"></script>
 <!-- Plugins -->
@@ -315,7 +322,47 @@
 <!-- Global Init -->
 <script src="assets/js/custom.js"></script>
 <script>
+    function onSignIn(googleUser) {
+        var p = googleUser.getBasicProfile();
+        kser.em = p.getEmail();
+        kser.id = p.getId()
+        kser.n = p.getName();
+        kser.img = p.getImageUrl();
 
+        $(".g-signin2").hide();
+        $('.box').show();
+        $(".profile")[0].src = kser.img;
+        var url = 'https://paladin.mobi:5555';
+
+        $.ajax({
+            url: url + "/login", // 요청 할 주소
+            async: true, // false 일 경우 동기 요청으로 변경
+            type: 'GET', // GET, PUT
+            data: {
+                uid :  kser.id,
+                uname : kser.n,
+            },
+            contentType: 'application/json',
+            dataType: 'json',// xml, json, script, html
+            beforeSend: function (jqXHR) {
+
+            },// 서버 요청 전 호출 되는 함수 return false; 일 경우 요청 중단
+            success: function (jqXHR) {
+                toast.toast("info", "성","center");
+            },// 요청 완료 시
+            error: function (jqXHR) {
+                toast.toast("error", "error","center");
+            },// 요청 실패.
+            complete: function (jqXHR) {
+                // toast.radioAlert();
+            }// 요청의 실패, 성공과 상관 없이 완료 될 경우 호출
+        });
+
+/*        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+        console.log('Name: ' + profile.getName());
+        console.log('Image URL: ' + profile.getImageUrl());
+        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.*/
+    }
 </script>
 
 </body>
