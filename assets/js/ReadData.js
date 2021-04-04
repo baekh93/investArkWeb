@@ -9,7 +9,7 @@
        source: function (request, response) {
            $.ajax({
                type :'GET',
-               url : url + "/start",
+               url : url + "/start",FF
                async: true,
                dataType: 'json',
                contentType: 'application/json',

@@ -93,10 +93,10 @@
                         <label for="BlackNWhite" id="ck-label" style="position: absolute;left: -40px; border-color: #4a4a4a;border-style: solid;border-width: thin;">
                             <span id="BWspan"></span></label>
 
-<!--                        <div class="g-signin2" data-onsuccess="onSignIn"></div>-->
-<!--                        <div class="box" style="background: #BDBDBD; display: none" >-->
-<!--                            <img class="profile" src="">-->
-<!--                        </div>-->
+                     <!--   <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                        <div class="box" style="background: #BDBDBD; display: none" >
+                            <img class="profile" src="">
+                        </div>-->
                     </div>
 
 
@@ -272,6 +272,31 @@
                     </div>
                 </div>
 
+                <div class="offset-lg-3 col-lg-6 ark-tab-div">
+                    <button class="btn btn-dark ark-tab ark-tab-ARKX">ARKX</button>
+                    <table id="ARKX" class="table display" style="width:100%; display: none">
+                        <colgroup>
+                            <col width="80px"/>
+                            <col/>
+                            <col/>
+                            <col/>
+                        </colgroup>
+                        <thead>
+                        <tr>
+                            <th>Date<br>(D/M/Y)</th>
+                            <th>Shares</th>
+                            <th>Value<br>($)</th>
+                            <th>Weight<br>(%)</th>
+                            <th>Change Shares</th>
+                            <th>Change Value($)</th>
+                            <th>Change Weight(%)</th>
+                        </tr>
+                        </thead>
+                    </table>
+                    <div id="ARKX-AD" style="display: none">
+                    </div>
+                </div>
+
             </div>
         </div>
 
@@ -325,7 +350,7 @@
 <!-- Global Init -->
 <script src="assets/js/custom.js"></script>
 <script>
-    function onSignIn(googleUser) {
+/*    function onSignIn(googleUser) {
         var p = googleUser.getBasicProfile();
         kser.em = p.getEmail();
         kser.id = p.getId()
@@ -361,11 +386,11 @@
             }// 요청의 실패, 성공과 상관 없이 완료 될 경우 호출
         });
 
-/*        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+/!*        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
         console.log('Name: ' + profile.getName());
         console.log('Image URL: ' + profile.getImageUrl());
-        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.*/
-    }
+        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.*!/
+    }*/
 </script>
 
 </body>

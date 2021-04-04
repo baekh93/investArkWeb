@@ -3,13 +3,14 @@
 
 (function ($) {
     var url = 'https://paladin.mobi:5000';
-    var funds = ['ARKK', 'ARKW', 'ARKQ', 'ARKG', 'ARKF'];
+    var funds = ['ARKK', 'ARKW', 'ARKQ', 'ARKG', 'ARKF', 'ARKX'];
     var dt = {
         'ARKK': undefined,
         'ARKW': undefined,
         'ARKQ': undefined,
         'ARKG': undefined,
-        'ARKF': undefined
+        'ARKF': undefined,
+        'ARKX': undefined
     };
 
     $(".ark-search .ark-tab").on('click', function (e) {
@@ -223,7 +224,7 @@
                             $('#' + fund).hide();
                         }
                     })
-                    if (jqXHR.ARKF.length + jqXHR.ARKG.length + jqXHR.ARKK.length + jqXHR.ARKQ.length + jqXHR.ARKW.length === 0) {
+                    if (jqXHR.ARKF.length + jqXHR.ARKG.length + jqXHR.ARKK.length + jqXHR.ARKQ.length + jqXHR.ARKW.length + jqXHR.ARKX.length === 0) {
                         toast.toast("error", arker_lan.noResult ,"center");
                         $(".ticker-company")[0].innerText = arker_lan.noResult +".."
                     }
