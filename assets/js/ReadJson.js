@@ -2,7 +2,7 @@
 
 
 (function ($) {
-    var url = 'https://paladin.mobi:5000';
+    var url = 'https://paladin.mobi:11202';
     var funds = ['ARKK', 'ARKW', 'ARKQ', 'ARKG', 'ARKF', 'ARKX'];
     var dt = {
         'ARKK': undefined,

@@ -1,6 +1,6 @@
 (function ($) {
 
-    var url = 'https://paladin.mobi:5000';
+    var url = 'https://paladin.mobi:11202';
     // var loadingHtml = ' <div id="loading" style="z-index: 1005;position: absolute; top:33%;left:25%; text-align:center;">' +
     //     '<div className="loading_box"><img src="assets/images/loading.gif"/></div>' +
     //     '</div>'
